@@ -16,7 +16,7 @@ public class DBInitializer {
     @PostConstruct
     public void initialize() {
         ponyRepository.save(new Pony("Bella", 5));
-        ponyRepository.save(new Pony("Luna", 12));
+        ponyRepository.save(new Pony("Luna", 7));
     }
 
 
