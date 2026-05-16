@@ -5,10 +5,27 @@ create table owner(
     name VARCHAR
 );
 
-create table ponies(
+create table stable(
+    id BIGINT primary key auto_increment
+);
+
+create table animal(
     id BIGINT PRIMARY KEY auto_increment,
     name VARCHAR,
     age int,
     owner_id BIGINT,
-    foreign key (owner_id) references owner
+    lays_eggs BOOLEAN,
+    species VARCHAR,
+    stable_id BIGINT,
+    foreign key (owner_id) references owner,
+    foreign key (stable_id) references stable
 );
+
+
+-- create table ponies(
+--     id BIGINT PRIMARY KEY auto_increment,
+--     name VARCHAR,
+--     age int,
+--     owner_id BIGINT,
+--     foreign key (owner_id) references owner
+-- );

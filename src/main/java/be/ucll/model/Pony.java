@@ -5,12 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
 @Entity
-@Table(name = "ponies")
-public class Pony {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//@Table(name = "ponies")
+@DiscriminatorValue("pony")
+public class Pony extends Animal {
 
     @NotBlank(message = "Name may not be empty")
     private String name;
@@ -30,21 +27,13 @@ public class Pony {
         this.owner = owner;
     }
 
-    public Pony(){
+    protected Pony(){
 
     }
 
     public Pony(String name, int age) {
         this.name = name;
         this.age = age;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
